@@ -1,0 +1,18 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const singletonSeller_1 = require("./entity/singletonSeller");
+const customerAgent_1 = require("./entity/customerAgent");
+const product_1 = require("./entity/product");
+const productA = new product_1.Product("A");
+const productB = new product_1.Product("B");
+const B1 = new customerAgent_1.CustomerAgent("B1");
+const B2 = new customerAgent_1.CustomerAgent("B2");
+const B3 = new customerAgent_1.CustomerAgent("B3");
+const B4 = new customerAgent_1.CustomerAgent("B4");
+B1.buy(productA);
+B3.buy(productB);
+B3.buy(productA);
+B2.buy(productB);
+B4.buy(productA);
+B2.buy(productB);
+singletonSeller_1.Seller.getInstance().printCustomers();
